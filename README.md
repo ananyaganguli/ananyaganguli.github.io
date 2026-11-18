@@ -1,2 +1,8 @@
-# github.io
-Personal website of Ananya Ganguli, a B2B marketer and corporate storyteller in Vancouver. Ten years of turning complicated products into case studies, launches and campaigns that people actually read. Experience, selected work and contact details live here.
+# Ananya Ganguli
+B2B marketer and corporate storyteller based in Vancouver.
+
+This repository holds my personal website: my experience, selected work, and how to reach me.
+
+Visit the site at https://ananyaganguli.github.io
+
+Say hello at ana.nh3@gmail.com or on LinkedIn (https://www.linkedin.com/in/ananyaganguli/).
