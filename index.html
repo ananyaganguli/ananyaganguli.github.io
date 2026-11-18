@@ -8,6 +8,13 @@
   <meta property="og:title" content="Ananya Ganguli | B2B Marketer and Corporate Storyteller">
   <meta property="og:description" content="I turn complicated products into stories people act on. Ten years of content, demand gen and growth marketing.">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ananyaganguli.github.io/">
+  <meta property="og:image" content="https://ananyaganguli.github.io/preview.png">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="640">
+  <meta property="og:image:alt" content="Ananya Ganguli, B2B marketer and corporate storyteller: I turn complicated products into stories people act on.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://ananyaganguli.github.io/preview.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -70,6 +77,7 @@
 
     .work { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
     .story { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 34px; display: flex; flex-direction: column; }
+    .work .story:last-child:nth-child(odd) { grid-column: 1 / -1; }
     .story .tag { align-self: flex-start; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; background: var(--accent-soft); color: var(--accent); padding: 5px 12px; border-radius: 999px; margin-bottom: 18px; }
     .story h3 { font-family: var(--serif); font-size: 24px; line-height: 1.25; margin-bottom: 14px; }
     .story p { color: var(--soft); margin-bottom: 12px; font-size: 16px; }
@@ -81,6 +89,41 @@
     .step .n { font-family: var(--serif); font-size: 46px; color: var(--accent-soft); font-weight: 700; line-height: 1; -webkit-text-stroke: 1px var(--accent); }
     .step h3 { font-family: var(--serif); font-size: 22px; margin: 12px 0 8px; }
     .step p { color: var(--soft); font-size: 16px; }
+
+
+    .portfolio-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 30px; flex-wrap: wrap; margin-bottom: 30px; }
+    .portfolio-head p { color: var(--soft); max-width: 620px; font-size: 18px; }
+    .filters { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 44px; }
+    .filter { font: inherit; font-size: 14px; font-weight: 600; padding: 9px 18px; border-radius: 999px; border: 1.5px solid var(--line); background: var(--card); color: var(--soft); cursor: pointer; }
+    .filter:hover { border-color: var(--accent); color: var(--accent); }
+    .filter[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+    .piece-groups { border-top: 1px solid var(--line); margin-bottom: 46px; }
+    .piece-group { border-bottom: 1px solid var(--line); }
+    .piece-group summary { list-style: none; display: flex; align-items: center; gap: 16px; padding: 24px 4px; cursor: pointer; }
+    .piece-group summary::-webkit-details-marker { display: none; }
+    .piece-group summary .label { font-family: var(--serif); font-size: 24px; font-weight: 600; color: var(--ink); flex: 1; }
+    .piece-group summary:hover .label { color: var(--accent); }
+    .piece-group .count { font-size: 14px; color: var(--soft); }
+    .piece-group .chev { width: 34px; height: 34px; border-radius: 50%; border: 1.5px solid var(--line); position: relative; flex-shrink: 0; transition: transform .2s, background .2s; }
+    .piece-group .chev::before { content: ""; position: absolute; left: 11px; top: 9px; width: 9px; height: 9px; border-right: 2px solid var(--accent); border-bottom: 2px solid var(--accent); transform: rotate(45deg); }
+    .piece-group[open] .chev { transform: rotate(180deg); background: var(--accent-soft); border-color: var(--accent-soft); }
+    .piece-group .piece-list { padding: 0 4px 18px; }
+    .piece-group .piece:last-child { border-bottom: none; }
+    .piece-group summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 8px; }
+    .piece-list { list-style: none; }
+    .piece { padding: 22px 0; border-bottom: 1px solid var(--line); }
+    .piece-title { font-family: var(--serif); font-size: 21px; font-weight: 600; line-height: 1.3; color: var(--ink); text-decoration: none; display: block; margin-bottom: 8px; }
+    a.piece-title:hover { color: var(--accent); }
+    .piece .arrow { color: var(--accent); }
+    .piece .tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 8px; }
+    .piece .tag { font-size: 12px; font-weight: 600; padding: 4px 11px; border-radius: 999px; background: var(--card); border: 1px solid var(--line); color: var(--soft); }
+    .piece .tag-live { background: #e3f1e7; border-color: #e3f1e7; color: #2e7a47; }
+    .piece .tag-gated { background: var(--accent-soft); border-color: var(--accent-soft); color: var(--accent); }
+    .piece-desc { color: var(--soft); font-size: 16px; max-width: 760px; }
+    .piece[hidden], .piece-group[hidden] { display: none; }
+    .portfolio-notes { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 26px 30px; color: var(--soft); font-size: 16px; }
+    .portfolio-notes p + p { margin-top: 10px; }
+    .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
     .tools { display: flex; flex-wrap: wrap; gap: 10px; }
     .tools span { background: var(--card); border: 1px solid var(--line); border-radius: 999px; padding: 8px 16px; font-size: 14px; }
@@ -110,6 +153,7 @@
       <ul>
         <li><a href="#story">My story</a></li>
         <li><a href="#work">Work</a></li>
+        <li><a href="#writing">Writing</a></li>
         <li><a href="#approach">Approach</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -185,10 +229,11 @@
           <p>I ran the content calendar, wrote for technical buyers, ghostwrote for executives and owned paid campaigns across Google, LinkedIn and Meta. Sales asked for a fresh set of collateral with every feature release. Over my time there, qualified leads grew 15% year over year and closed leads grew 27%.</p>
         </div>
         <div class="chapter">
-          <p class="when">Chapter seven · now</p>
-          <h3>What comes next</h3>
-          <p class="where">Vancouver, open to remote</p>
-          <p>I'm looking for my next team. I want a place where storytelling and performance marketing sit at the same table, because I've seen what happens when they do.</p>
+          <p class="when">Chapter seven · 2026 to now</p>
+          <h3>Building a brand from the first word</h3>
+          <p class="where">Marketing consultant, early-stage AI startup</p>
+          <p>I'm helping an early-stage AI startup find its voice. The product is a shared thinking workspace for teams, and there's no budget for paid growth, so every word has to work hard. I'm building the go-to-market and content strategy, shaping the brand voice, and writing the website and blog articles, with an eye on showing up in AI answer engines as well as Google search.</p>
+          <p style="margin-top:12px">Alongside this, I'm looking for my next full-time team, somewhere storytelling and performance marketing sit at the same table.</p>
         </div>
       </div>
     </div>
@@ -200,6 +245,14 @@
       <p class="section-intro">Each project here started with a problem and a few people who knew more than I did. Here's how each one played out.</p>
 
       <div class="work">
+        <article class="story">
+          <span class="tag">Go-to-market</span>
+          <h3>Marketing a startup with no budget</h3>
+          <p><span class="label">The problem.</span> A new AI workspace up against far bigger, pricier tools, with no money for paid growth.</p>
+          <p><span class="label">What I did.</span> As a consultant, I'm building the go-to-market and content strategy, defining the brand voice and writing the website and blog.</p>
+          <p class="result">Content strategy, brand voice and website copy in place</p>
+        </article>
+
         <article class="story">
           <span class="tag">Customer story</span>
           <h3>Three days of planning, down to four hours</h3>
@@ -230,8 +283,140 @@
           <h3>Writing in a CEO's voice</h3>
           <p><span class="label">The problem.</span> Leaders with sharp opinions and no time to write them down.</p>
           <p><span class="label">What I did.</span> I ghostwrote LinkedIn posts, blog posts and talking points for bylined articles, and interviewed the CEO of Worldline North America for his profile. Every piece went out with the executive's approval.</p>
-          <p class="result">Writing samples available on request</p>
+          <p class="result">Ghostwritten samples available on request</p>
+          <a class="more" href="#writing">See my bylined writing →</a>
         </article>
+      </div>
+    </div>
+  </section>
+
+<section id="writing" aria-labelledby="writing-h">
+    <div class="wrap">
+      <h2 id="writing-h">Things I've written</h2>
+      <div class="portfolio-head">
+        <p>Case studies, executive interviews, thought leadership and technical explainers from payments, construction technology and corporate communications. Live pieces open in a new tab. Gated pieces are available as a PDF if you ask.</p>
+        <a class="btn btn-ghost" href="Ananya-Ganguli-Writing-Portfolio.pdf" download target="_blank" rel="noopener">Download the full portfolio (PDF)</a>
+      </div>
+      <div class="filters" role="group" aria-label="Filter writing">
+        <button class="filter" type="button" data-filter="all" aria-pressed="true">All (17)</button>
+        <button class="filter" type="button" data-filter="live" aria-pressed="false">Live online (7)</button>
+        <button class="filter" type="button" data-filter="gated" aria-pressed="false">PDF on request (10)</button>
+      </div>
+            <div class="piece-groups">
+        <details class="piece-group" open>
+          <summary><h3 class="label">Case studies and customer stories</h3><span class="count">5 pieces</span><span class="chev" aria-hidden="true"></span></summary>
+          <ul class="piece-list">
+          <li class="piece" data-status="live">
+            <a class="piece-title" href="https://www.cadmakers.com/insights/haycon-reduces-3-day-site-logistics-planning-cycles-to-under-4-hours-with-rapid-4d-simulation-using-cmbuilder-io" target="_blank" rel="noopener">Haycon Reduces 3-Day Site Logistics Planning Cycles to Under 4 Hours<span aria-hidden="true" class="arrow"> ↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+            <span class="tags"><span class="tag">CadMakers · Case study</span><span class="tag tag-live">Live online</span></span>
+            <p class="piece-desc">How Haycon used cmBuilder on a Boston mass-timber project: the challenge, the solution, a client quote and measurable results.</p>
+          </li>
+          <li class="piece" data-status="live">
+            <a class="piece-title" href="https://www.cadmakers.com/insights/8g-solutions-chooses-cmexe-io-to-enhance-their-lean-project-delivery" target="_blank" rel="noopener">8G Solutions Chooses cmExe.io to Enhance their Lean Project Delivery<span aria-hidden="true" class="arrow"> ↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+            <span class="tags"><span class="tag">CadMakers · Customer story</span><span class="tag tag-live">Live online</span></span>
+            <p class="piece-desc">How 8G Solutions (formerly JPI Glass) digitized lean manufacturing workflows, with quotes from the client and the CadMakers CEO.</p>
+          </li>
+          <li class="piece" data-status="gated">
+            <span class="piece-title">BCCE Creates Secure Payments Experience</span>
+            <span class="tags"><span class="tag">Worldline · Case study</span><span class="tag tag-gated">PDF on request</span></span>
+            <p class="piece-desc">How the British Columbia Chamber Executives Society solved a payment acceptance problem with Custom Checkout, built around a quote from its Association Manager.</p>
+          </li>
+          <li class="piece" data-status="gated">
+            <span class="piece-title">Driving Sustainable Growth for ISVs Through Collaboration</span>
+            <span class="tags"><span class="tag">Worldline · Partner case studies</span><span class="tag tag-gated">PDF on request</span></span>
+            <p class="piece-desc">Three short stories (Gracie Barra, Benji Pays, Pitbull Payments) on how ISV partners used the Partner Marketing Program to grow leads and revenue.</p>
+          </li>
+          <li class="piece" data-status="gated">
+            <span class="piece-title">L&amp;T Technology Services: LinkedIn Campaign Case Study</span>
+            <span class="tags"><span class="tag">Campaign case study</span><span class="tag tag-gated">PDF on request</span></span>
+            <p class="piece-desc">An internal draft case study of a LinkedIn campaign.</p>
+          </li>
+        </ul>
+        </details>
+        <details class="piece-group">
+          <summary><h3 class="label">Executive and thought leadership</h3><span class="count">3 pieces</span><span class="chev" aria-hidden="true"></span></summary>
+          <ul class="piece-list">
+          <li class="piece" data-status="live">
+            <a class="piece-title" href="https://worldline.com/en-ca/home/main-navigation/resources/blogs/getting-to-know-justin-passalaqua-ceo-of-worldline-north-america" target="_blank" rel="noopener">Getting to Know Justin Passalaqua, CEO of Worldline North America<span aria-hidden="true" class="arrow"> ↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+            <span class="tags"><span class="tag">Worldline · Executive interview</span><span class="tag tag-live">Live online</span></span>
+            <p class="piece-desc">An interview I conducted and wrote on the CEO&#x27;s career path, leadership and vision, balancing substance with personality.</p>
+          </li>
+          <li class="piece" data-status="gated">
+            <span class="piece-title">Humanizing Payments in the Age of AI</span>
+            <span class="tags"><span class="tag">Worldline · Thought leadership</span><span class="tag tag-gated">PDF on request</span></span>
+            <p class="piece-desc">A point of view on why human support stays a competitive edge as automation reshapes payments.</p>
+          </li>
+          <li class="piece" data-status="live">
+            <a class="piece-title" href="https://www.cadmakers.com/insights/now-every-builder-can-go-digital-with-cmbuilder-io" target="_blank" rel="noopener">Now Every Builder Can Go Digital with cmBuilder.io<span aria-hidden="true" class="arrow"> ↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+            <span class="tags"><span class="tag">CadMakers · Launch story</span><span class="tag tag-live">Live online</span></span>
+            <p class="piece-desc">The launch narrative for cmBuilder: product vision, features and the story of the live-streamed launch event.</p>
+          </li>
+        </ul>
+        </details>
+        <details class="piece-group">
+          <summary><h3 class="label">Technical and compliance</h3><span class="count">4 pieces</span><span class="chev" aria-hidden="true"></span></summary>
+          <ul class="piece-list">
+          <li class="piece" data-status="gated">
+            <span class="piece-title">How Worldline Can Help Pave the Way to PCI 4.0</span>
+            <span class="tags"><span class="tag">Worldline · Compliance explainer</span><span class="tag tag-gated">PDF on request</span></span>
+            <p class="piece-desc">What PCI DSS 4.0 is, what changes and how partners get through it, turning a dense standard into clear steps.</p>
+          </li>
+          <li class="piece" data-status="live">
+            <a class="piece-title" href="https://worldline.com/en-ca/home/main-navigation/resources/blogs/3d-secure-2-0-an-extra-shield-for-your-fraud-prevention-toolkit" target="_blank" rel="noopener">3D Secure 2.0: An Extra Shield for Your Fraud Prevention Toolkit<span aria-hidden="true" class="arrow"> ↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+            <span class="tags"><span class="tag">Worldline · Technical explainer</span><span class="tag tag-live">Live online</span></span>
+            <p class="piece-desc">How the 3DS2 protocol tackles card-not-present fraud, chargebacks and account takeover, grounded in fraud-loss data.</p>
+          </li>
+          <li class="piece" data-status="gated">
+            <span class="piece-title">Secure Online Payments: Shield Your Business from Risk</span>
+            <span class="tags"><span class="tag">Worldline · Security guide</span><span class="tag tag-gated">PDF on request</span></span>
+            <p class="piece-desc">A guide to payment security with real breach examples, a layered strategy and an FAQ.</p>
+          </li>
+          <li class="piece" data-status="live">
+            <a class="piece-title" href="https://www.cadmakers.com/insights/4-reasons-to-choose-cmbuilder-io-for-4d-simulation-of-your-construction-site-logistics-pan" target="_blank" rel="noopener">4 Reasons to Choose cmBuilder.io for 4D Simulation<span aria-hidden="true" class="arrow"> ↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+            <span class="tags"><span class="tag">CadMakers · Product piece</span><span class="tag tag-live">Live online</span></span>
+            <p class="piece-desc">cmBuilder&#x27;s core 4D simulation features, written for a technical construction audience, with a client testimonial.</p>
+          </li>
+        </ul>
+        </details>
+        <details class="piece-group">
+          <summary><h3 class="label">Industry guides and reports</h3><span class="count">4 pieces</span><span class="chev" aria-hidden="true"></span></summary>
+          <ul class="piece-list">
+          <li class="piece" data-status="gated">
+            <span class="piece-title">Maximize Profits Through Payments: A Strategic Guide for ISV and SaaS Companies</span>
+            <span class="tags"><span class="tag">Worldline · Ebook</span><span class="tag tag-gated">PDF on request</span></span>
+            <p class="piece-desc">A 10-page guide for software companies on earning through embedded payments, with a partner-selection checklist.</p>
+          </li>
+          <li class="piece" data-status="gated">
+            <span class="piece-title">10 Key Payment Trends Shaping the Market in 2025</span>
+            <span class="tags"><span class="tag">Worldline · Trend report</span><span class="tag tag-gated">PDF on request</span></span>
+            <p class="piece-desc">Ten trends, from digital wallets to SoftPOS and real-time payments, each tied to what it means for software providers. 11 cited sources.</p>
+          </li>
+          <li class="piece" data-status="gated">
+            <span class="piece-title">Lower Fees and Optimize Your Cashflow with Bank Transfers</span>
+            <span class="tags"><span class="tag">Worldline · Product guide</span><span class="tag tag-gated">PDF on request</span></span>
+            <p class="piece-desc">ACH and EFT compared with card processing on cost, settlement time and risk, with use cases by industry.</p>
+          </li>
+          <li class="piece" data-status="gated">
+            <span class="piece-title">Independent Software Vendors (ISVs): Brand Video Storyboard</span>
+            <span class="tags"><span class="tag">Worldline · Video storyboard</span><span class="tag tag-gated">PDF on request</span></span>
+            <p class="piece-desc">An internal storyboard for a brand video aimed at ISVs.</p>
+          </li>
+        </ul>
+        </details>
+        <details class="piece-group">
+          <summary><h3 class="label">Help documentation</h3><span class="count">1 piece</span><span class="chev" aria-hidden="true"></span></summary>
+          <ul class="piece-list">
+          <li class="piece" data-status="live">
+            <a class="piece-title" href="https://help.na.bambora.com/hc/en-us/articles/47219100991635-Labour-Day-Canada-and-USA-Sept-7-2026" target="_blank" rel="noopener">Labour Day (Canada and USA), Sept 7, 2026<span aria-hidden="true" class="arrow"> ↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+            <span class="tags"><span class="tag">Shift4 Support Center · Help article</span><span class="tag tag-live">Live online</span></span>
+            <p class="piece-desc">How a bank holiday shifts batch processing and settlement, with tables mapping processing dates to credit dates. Part of the help and developer documentation I kept up for the team.</p>
+          </li>
+        </ul>
+        </details>
+      </div>
+      <div class="portfolio-notes">
+        <p>I also wrote quarterly product newsletters for Worldline's ISV partners, and storyboarded scripts for sales demo and brand videos.</p>
+        <p>During the acquisition I worked on partner and merchant communications that stay confidential. I'm glad to talk about that work directly.</p>
       </div>
     </div>
   </section>
@@ -277,6 +462,7 @@
       <div class="cta">
         <a href="mailto:ana.nh3@gmail.com" class="btn btn-main">Email me</a>
         <a href="https://linkedin.com/in/ananyaganguli" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn</a>
+        <a href="Ananya-Ganguli-Resume.pdf" target="_blank" rel="noopener" class="btn btn-ghost">Resume (PDF)</a>
       </div>
     </div>
   </section>
@@ -288,5 +474,24 @@
     </div>
   </footer>
 
+
+  <script>
+    document.querySelectorAll('.filter').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var f = btn.getAttribute('data-filter');
+        document.querySelectorAll('.filter').forEach(function (b) { b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'); });
+        document.querySelectorAll('.piece-group').forEach(function (g) {
+          var shown = 0;
+          g.querySelectorAll('.piece').forEach(function (p) {
+            var ok = f === 'all' || p.getAttribute('data-status') === f;
+            p.hidden = !ok; if (ok) shown++;
+          });
+          g.hidden = shown === 0;
+          var c = g.querySelector('.count');
+          if (c) c.textContent = shown + (shown === 1 ? ' piece' : ' pieces');
+        });
+      });
+    });
+  </script>
 </body>
 </html>
