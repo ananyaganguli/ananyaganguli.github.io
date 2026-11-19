@@ -61,7 +61,8 @@
     h2 { font-family: var(--serif); font-weight: 600; font-size: clamp(30px, 4vw, 42px); line-height: 1.15; margin-bottom: 18px; }
     .section-intro { color: var(--soft); max-width: 620px; font-size: 18px; margin-bottom: 50px; }
 
-    .numbers { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .numbers { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 20px; }
+    .num strong { white-space: nowrap; }
     .num { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 28px 24px; }
     .num strong { display: block; font-family: var(--serif); font-size: 38px; color: var(--accent); line-height: 1.1; margin-bottom: 8px; }
     .num span { font-size: 15px; color: var(--soft); }
@@ -142,9 +143,52 @@
     @media (max-width: 820px) {
       nav ul { display: none; }
       .numbers { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 560px) {
+      .numbers { grid-template-columns: 1fr; }
+      .num strong { font-size: 32px; }
       .work, .approach { grid-template-columns: 1fr; }
       .hero { padding: 70px 0 60px; }
       section { padding: 64px 0; }
+    }
+
+
+    .status .pill { display: inline-flex; align-items: center; gap: 10px; background: #e3f1e7; color: #2e7a47; font-weight: 600; font-size: 16px; padding: 9px 18px; border-radius: 999px; }
+    .callout { margin-top: 16px; display: flex; gap: 12px; align-items: flex-start; background: #e3f1e7; color: #24603a; border-radius: 14px; padding: 16px 20px; font-weight: 500; max-width: 680px; }
+    .callout .dot { margin-top: 9px; flex-shrink: 0; }
+    a.num { text-decoration: none; color: inherit; display: flex; flex-direction: column; transition: transform .15s, box-shadow .15s, border-color .15s; }
+    a.num:hover, a.num:focus-visible { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(29,26,23,.08); border-color: var(--accent-soft); }
+    .num .see { margin-top: auto; padding-top: 12px; font-style: normal; font-size: 14px; font-weight: 600; color: var(--accent); }
+    #card-cpl, #card-softpos, #ch-cadmakers, #ch-linkedin { scroll-margin-top: 110px; }
+    .flash { animation: flash 1.6s ease; }
+    @keyframes flash { 0%, 40% { box-shadow: 0 0 0 4px var(--accent-soft); background-color: #fff7f3; } 100% { box-shadow: 0 0 0 0 transparent; } }
+    .group-note { color: var(--soft); font-size: 15px; background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 14px 18px; margin: 0 4px 6px; }
+    .more-btn { display: none; }
+    .mnav { display: none; }
+    @media (max-width: 820px) {
+      .mnav { display: flex; gap: 8px; overflow-x: auto; padding: 0 24px 12px; scrollbar-width: none; }
+      .mnav::-webkit-scrollbar { display: none; }
+      .mnav a { flex-shrink: 0; font-size: 14px; font-weight: 500; text-decoration: none; color: var(--soft); border: 1px solid var(--line); background: var(--card); border-radius: 999px; padding: 6px 14px; }
+      nav .wrap { height: 56px; }
+      .more-body { display: none; }
+      .is-open .more-body { display: block; }
+      .more-btn { display: inline-block; margin-top: 10px; font: inherit; font-size: 15px; font-weight: 600; color: var(--accent); background: none; border: none; padding: 4px 0; cursor: pointer; }
+      .more-btn { align-self: flex-start; text-align: left; }
+      .chapter.is-open .where { margin-bottom: 10px; }
+      .more-btn::after { content: " +"; }
+      .is-open .more-btn::after { content: " \2212"; }
+      .chapter { padding-bottom: 30px; }
+      .chapter .where { margin-bottom: 0; }
+      .story { padding: 26px; }
+      .story .result { margin-top: 4px; }
+      .work { gap: 16px; }
+      .section-intro { margin-bottom: 30px; font-size: 17px; }
+      section { padding: 52px 0; }
+      .belief { padding: 60px 0; }
+      .contact { padding: 70px 0; }
+      .approach { gap: 22px; }
+      .num { padding: 20px; }
+      .numbers { gap: 12px; }
     }
   </style>
 </head>
@@ -161,6 +205,9 @@
         <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
+    <div class="mnav">
+      <a href="#story">My story</a><a href="#work">Work</a><a href="#writing">Writing</a><a href="#approach">Approach</a><a href="#contact">Contact</a>
+    </div>
   </nav>
 
   <header class="hero">
@@ -172,7 +219,7 @@
         <a href="#work" class="btn btn-main">See the work</a>
         <a href="#contact" class="btn btn-ghost">Get in touch</a>
       </div>
-      <p class="status"><span class="dot"></span> Open to content, demand gen and growth marketing roles</p>
+      <p class="status"><span class="pill"><span class="dot"></span>Open to content, demand gen and growth marketing roles</span></p>
     </div>
   </header>
 
@@ -180,10 +227,10 @@
     <div class="wrap">
       <h2>A few numbers I'm proud of</h2>
       <div class="numbers">
-        <div class="num"><strong>$1,150 → $340</strong><span>Cost per lead after I moved budget toward what converted</span></div>
-        <div class="num"><strong>+42%</strong><span>Lead conversion rate at a construction tech startup</span></div>
-        <div class="num"><strong>15+</strong><span>New organizers signed in the first three months of a payments product launch</span></div>
-        <div class="num"><strong>86%</strong><span>Product adoption among existing customers, from a cold start</span></div>
+        <a class="num" href="#card-cpl"><strong>$1,150 → $340</strong><span>Cost per lead after I moved budget toward what converted</span><em class="see">See how →</em></a>
+        <a class="num" href="#ch-cadmakers"><strong>+42%</strong><span>Lead conversion rate at a construction tech startup</span><em class="see">See how →</em></a>
+        <a class="num" href="#card-softpos"><strong>15+</strong><span>New partners signed in the first three months of a payments product launch</span><em class="see">See how →</em></a>
+        <a class="num" href="#ch-linkedin"><strong>86%</strong><span>Product adoption among existing customers, from a cold start</span><em class="see">See how →</em></a>
       </div>
     </div>
   </section>
@@ -197,46 +244,58 @@
         <div class="chapter">
           <p class="when">Chapter one · 2007 to 2014</p>
           <h3>The engineer</h3>
-          <p class="where">NIT Durgapur, then Mindtree in Bangalore</p>
+          <p class="where">NIT Durgapur, then Mindtree in Bangalore</p><div class="more-body">
           <p>I studied chemical engineering and then spent three years building user interfaces in HTML, CSS and JavaScript. I still use that grounding every week. When a product team explains their API, I can follow along, and I can build the landing page myself if I need to.</p>
+        </div>
+          <button class="more-btn" type="button" aria-expanded="false">Read this chapter</button>
         </div>
         <div class="chapter">
           <p class="when">Chapter two · 2014 to 2017</p>
           <h3>Learning the language of buyers</h3>
-          <p class="where">MICA in Ahmedabad, then Sulekha.com in Chennai</p>
+          <p class="where">MICA in Ahmedabad, then Sulekha.com in Chennai</p><div class="more-body">
           <p>I went back to school for management communication and came out running SEM, SEO and affiliate campaigns side by side. At Sulekha I brought cost per acquisition down 40%, and the work was shortlisted for a Think with Google case study.</p>
         </div>
-        <div class="chapter">
+          <button class="more-btn" type="button" aria-expanded="false">Read this chapter</button>
+        </div>
+        <div class="chapter" id="ch-linkedin">
           <p class="when">Chapter three · 2017 to 2019</p>
           <h3>Thinking globally at LinkedIn</h3>
-          <p class="where">LinkedIn, Gurgaon</p>
+          <p class="where">LinkedIn, Gurgaon</p><div class="more-body">
           <p>I planned demand gen, vertical and account-based programs with teams in North America, EMEA and APAC. I cross-sold Sales Navigator to existing customers, grew its customer base 30% and took usage to 86%. I also got LinkedIn India onto page one for 20 target keywords, and our team was named Top Performing Team, APAC.</p>
+        </div>
+          <button class="more-btn" type="button" aria-expanded="false">Read this chapter</button>
         </div>
         <div class="chapter">
           <p class="when">Chapter four · 2019 to 2020</p>
           <h3>Coming home to Kolkata</h3>
-          <p class="where">Tata Metaliks, corporate communications</p>
+          <p class="where">Tata Metaliks, corporate communications</p><div class="more-body">
           <p>Back in Bengal, I worked with the agencies behind a Tata Group industrial brand. Organic social reach rose 56%, and the company recorded its first ever NPS of 8.1.</p>
         </div>
-        <div class="chapter">
+          <button class="more-btn" type="button" aria-expanded="false">Read this chapter</button>
+        </div>
+        <div class="chapter" id="ch-cadmakers">
           <p class="when">Chapter five · 2020 to 2022</p>
           <h3>A new country and a blank page</h3>
-          <p class="where">CadMakers, Vancouver</p>
+          <p class="where">CadMakers, Vancouver</p><div class="more-body">
           <p>I moved to Canada and joined a construction tech startup where I owned the whole marketing budget and reported to the CEO. The first thing that surprised me was preconstruction, the idea that a project gets built digitally before any material hits the ground. I built go-to-market for two SaaS products from scratch and learned construction from the people who do it, through customer interviews and long sessions with the product team.</p>
           <p style="margin-top:12px">Settling into a completely new country turned out to be easier than I expected. People were accommodating, and it helped that Vancouver is a strikingly beautiful city to call home.</p>
+        </div>
+          <button class="more-btn" type="button" aria-expanded="false">Read this chapter</button>
         </div>
         <div class="chapter">
           <p class="when">Chapter six · 2022 to 2026</p>
           <h3>Making payments make sense</h3>
-          <p class="where">Shift4, formerly Worldline North America</p>
+          <p class="where">Shift4, formerly Worldline North America</p><div class="more-body">
           <p>I ran the content calendar, wrote for technical buyers, ghostwrote for executives and owned paid campaigns across Google, LinkedIn and Meta. Sales asked for a fresh set of collateral with every feature release. Over my time there, qualified leads grew 15% year over year and closed leads grew 27%.</p>
+        </div>
+          <button class="more-btn" type="button" aria-expanded="false">Read this chapter</button>
         </div>
         <div class="chapter">
           <p class="when">Chapter seven · 2026 to now</p>
           <h3>Building a brand from the first word</h3>
-          <p class="where">Marketing consultant, early-stage AI startup</p>
-          <p>I'm helping an early-stage AI startup find its voice. The product is a shared thinking workspace for teams, and there's no budget for paid growth, so whatever we publish has to bring people in on its own. I'm building the go-to-market and content strategy, shaping the brand voice, and writing the website and blog articles, with an eye on showing up in AI answer engines as well as Google search.</p>
-          <p style="margin-top:12px">I'm also looking for my next full-time role, ideally on a team where the people writing the content can see how it performs.</p>
+          <p class="where">Marketing consultant, early-stage AI startup</p><div class="more-body"><p>A friend co-founded an AI startup and asked if I'd help them figure out how to talk about it. The product is a shared thinking workspace for small teams, which sounds simple until you try to explain why someone should switch to it. I've been shaping the positioning and brand voice, and working out how to grow through content instead of paid ads, including making sure it shows up when people ask AI tools for recommendations.</p></div>
+          <p class="callout"><span class="dot"></span><span>I'm looking for my next full-time role in content, demand gen or growth marketing, ideally on a team where the people writing the content can see how it performs.</span></p>
+          <button class="more-btn" type="button" aria-expanded="false">Read this chapter</button>
         </div>
       </div>
     </div>
@@ -250,44 +309,59 @@
       <div class="work">
         <article class="story">
           <span class="tag">Go-to-market</span>
-          <h3>Marketing a startup with no budget</h3>
-          <p><span class="label">The problem.</span> A new AI workspace up against far bigger, pricier tools, with no money for paid growth.</p>
-          <p><span class="label">What I did.</span> As a consultant, I'm building the go-to-market and content strategy, defining the brand voice and writing the website and blog.</p>
+          <h3>Finding a voice for an early-stage AI startup</h3>
+          <div class="more-body"><p><span class="label">The problem.</span> A new AI workspace for teams, up against bigger, better-known tools, that needed people to find it through content rather than paid ads.</p>
+          <p><span class="label">What I did.</span> As a consultant, I'm building the go-to-market and content strategy, defining the brand voice and working on the website copy and blog articles.</p>
+          </div>
           <p class="result">Content strategy, brand voice and website copy in place</p>
+        
+          <button class="more-btn" type="button" aria-expanded="false">How I did it</button>
         </article>
 
         <article class="story">
           <span class="tag">Customer story</span>
           <h3>Three days of planning, down to four hours</h3>
-          <p><span class="label">The problem.</span> CadMakers needed proof that cmBuilder worked on real job sites, and I had no construction background.</p>
+          <div class="more-body"><p><span class="label">The problem.</span> CadMakers needed proof that cmBuilder worked on real job sites, and I had no construction background.</p>
           <p><span class="label">What I did.</span> I did a lot of learning on the side, from the general contractor's point of view down to the smaller construction terms, until I understood the details and how useful the product could be. Then I interviewed Haycon's team and our engineers and wrote the story, which our CEO and the customer reviewed before it went live. It's still the piece I'm proudest of.</p>
+          </div>
           <p class="result">Site logistics planning cut from three days to under four hours</p>
           <a class="more" href="https://www.cadmakers.com/insights/haycon-reduces-3-day-site-logistics-planning-cycles-to-under-4-hours-with-rapid-4d-simulation-using-cmbuilder-io" target="_blank" rel="noopener">Read the case study →</a>
+        
+          <button class="more-btn" type="button" aria-expanded="false">How I did it</button>
         </article>
 
-        <article class="story">
+        <article class="story" id="card-softpos">
           <span class="tag">Product launch</span>
-          <h3>Launching SoftPOS to event organizers</h3>
-          <p><span class="label">The problem.</span> A new tap-to-pay product needed a way into an audience that had never heard of it.</p>
+          <h3>Launching SoftPOS to new partners</h3>
+          <div class="more-body"><p><span class="label">The problem.</span> A new tap-to-pay product needed a way into an audience that had never heard of it.</p>
           <p><span class="label">What I did.</span> I wrote the launch content, ran LinkedIn ABM and built co-branded welcome flows with partners.</p>
-          <p class="result">15+ organizers signed in three months, bringing in 30% more revenue than the whole field services vertical had before</p>
+          </div>
+          <p class="result">15+ new partners signed in three months, bringing in 30% more revenue than the whole field services vertical had before</p>
+        
+          <button class="more-btn" type="button" aria-expanded="false">How I did it</button>
         </article>
 
-        <article class="story">
+        <article class="story" id="card-cpl">
           <span class="tag">Performance marketing</span>
           <h3>Cutting cost per lead by 70%</h3>
-          <p><span class="label">The problem.</span> A startup budget, two SaaS products and leads costing $1,150 each.</p>
+          <div class="more-body"><p><span class="label">The problem.</span> A startup budget, two SaaS products and leads costing $1,150 each.</p>
           <p><span class="label">What I did.</span> I tested ads and landing pages across Google, Meta and LinkedIn and kept moving money toward whatever converted.</p>
+          </div>
           <p class="result">Cost per lead down to $340, lead conversion up 42%, LinkedIn following up 275%</p>
+        
+          <button class="more-btn" type="button" aria-expanded="false">How I did it</button>
         </article>
 
         <article class="story">
           <span class="tag">Executive content</span>
           <h3>Writing in an executive's voice</h3>
-          <p><span class="label">The problem.</span> Leaders with sharp opinions and no time to write them down.</p>
+          <div class="more-body"><p><span class="label">The problem.</span> Leaders with sharp opinions and no time to write them down.</p>
           <p><span class="label">What I did.</span> I ghostwrote LinkedIn posts, blog posts and talking points for bylined articles for several members of the executive team, and each piece went out once they'd approved it. I also interviewed the CEO of Worldline North America and wrote his profile.</p>
+          </div>
           <p class="result">Ghostwritten samples available on request</p>
-          <a class="more" href="#writing">See my bylined writing →</a>
+          <a class="more" href="#writing">See my writing portfolio →</a>
+        
+          <button class="more-btn" type="button" aria-expanded="false">How I did it</button>
         </article>
       </div>
     </div>
@@ -301,9 +375,9 @@
         <a class="btn btn-ghost" href="Ananya-Ganguli-Writing-Portfolio.pdf" download target="_blank" rel="noopener">Download the full portfolio (PDF)</a>
       </div>
       <div class="filters" role="group" aria-label="Filter writing">
-        <button class="filter" type="button" data-filter="all" aria-pressed="true">All (17)</button>
+        <button class="filter" type="button" data-filter="all" aria-pressed="true">All (23)</button>
         <button class="filter" type="button" data-filter="live" aria-pressed="false">Live online (7)</button>
-        <button class="filter" type="button" data-filter="gated" aria-pressed="false">PDF on request (10)</button>
+        <button class="filter" type="button" data-filter="gated" aria-pressed="false">PDF on request (16)</button>
       </div>
             <div class="piece-groups">
         <details class="piece-group" open>
@@ -330,9 +404,9 @@
             <p class="piece-desc">Three short stories (Gracie Barra, Benji Pays, Pitbull Payments) on how ISV partners used the Partner Marketing Program to grow leads and revenue.</p>
           </li>
           <li class="piece" data-status="gated">
-            <span class="piece-title">L&amp;T Technology Services: LinkedIn Campaign Case Study</span>
-            <span class="tags"><span class="tag">Campaign case study</span><span class="tag tag-gated">PDF on request</span></span>
-            <p class="piece-desc">An internal draft case study of a LinkedIn campaign.</p>
+            <span class="piece-title">How L&amp;T Technology Services Used LinkedIn Campaigns to Build a $35 Million Sales Funnel</span>
+            <span class="tags"><span class="tag">LinkedIn · Customer case study</span><span class="tag tag-gated">PDF on request</span></span>
+            <p class="piece-desc">Published by LinkedIn in 2018. I wrote it with the L&amp;T Technology Services team: how they reached Director-level buyers in North America and Europe, generating 2,500+ leads at a $39.93 cost per lead and a sales funnel of about $35 million.</p>
           </li>
         </ul>
         </details>
@@ -416,18 +490,47 @@
           </li>
         </ul>
         </details>
+        <details class="piece-group">
+          <summary><h3 class="label">Startup consulting</h3><span class="count">6 pieces</span><span class="chev" aria-hidden="true"></span></summary>
+          <p class="group-note">This is current client work, so I've kept the company anonymous here. If you'd like to know more about it, <a href="#contact">get in touch</a> and I'm happy to talk it through.</p>
+          <ul class="piece-list">
+          <li class="piece" data-status="gated">
+            <span class="piece-title">Company website copy</span>
+            <span class="tags"><span class="tag">Website copy</span><span class="tag tag-gated">On request</span></span>
+            <p class="piece-desc">Copy for the website of an early-stage AI startup, covering who the company is and what it's building.</p>
+          </li>
+          <li class="piece" data-status="gated">
+            <span class="piece-title">Product website copy</span>
+            <span class="tags"><span class="tag">Website copy</span><span class="tag tag-gated">On request</span></span>
+            <p class="piece-desc">Homepage and product copy for the startup's first product, a shared thinking workspace for small teams.</p>
+          </li>
+          <li class="piece" data-status="gated">
+            <span class="piece-title">Brand tone of voice guide</span>
+            <span class="tags"><span class="tag">Brand guidelines</span><span class="tag tag-gated">On request</span></span>
+            <p class="piece-desc">The guide that sets how the company and its product sound, with principles and examples for anyone writing for the brand.</p>
+          </li>
+          <li class="piece" data-status="gated">
+            <span class="piece-title">Blog strategy</span>
+            <span class="tags"><span class="tag">Content strategy</span><span class="tag tag-gated">On request</span></span>
+            <p class="piece-desc">The plan for the blog: who it's for, the topics it covers, and how posts are written to show up in Google and AI answer engines.</p>
+          </li>
+          <li class="piece" data-status="gated">
+            <span class="piece-title">Pitch document</span>
+            <span class="tags"><span class="tag">Pitch document</span><span class="tag tag-gated">On request</span></span>
+            <p class="piece-desc">The story the startup uses to explain the company and its product.</p>
+          </li>
+          <li class="piece" data-status="gated">
+            <span class="piece-title">Product video voiceover script</span>
+            <span class="tags"><span class="tag">Video script</span><span class="tag tag-gated">On request</span></span>
+            <p class="piece-desc">The voiceover script for a product video.</p>
+          </li>
+        </ul>
+        </details>
       </div>
       <div class="portfolio-notes">
         <p>I also wrote quarterly product newsletters for Worldline's ISV partners, and storyboarded scripts for sales demo and brand videos.</p>
         <p>During the acquisition I worked on partner and merchant communications that stay confidential. I'm glad to talk about that work directly.</p>
       </div>
-    </div>
-  </section>
-
-  <section class="belief">
-    <div class="wrap">
-      <p class="eyebrow">Something I believe</p>
-      <blockquote>I think most B2B case studies are too polite. The customer quote says everything went smoothly, and nobody believes it. I'd rather show the messy middle, the week the integration broke and how the team fixed it, because that's the part a buyer is actually trying to picture.</blockquote>
     </div>
   </section>
 
@@ -452,6 +555,13 @@
           <p>I A/B test headlines, landing pages and emails, and track results in GA4, HubSpot, Marketo and Salesforce. Then I put more effort into whatever's working.</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section class="belief">
+    <div class="wrap">
+      <p class="eyebrow">Something I believe</p>
+      <blockquote>I think most B2B case studies are too polite. The customer quote says everything went smoothly, and nobody believes it. I'd rather show the messy middle, the week the integration broke and how the team fixed it, because that's the part a buyer is actually trying to picture.</blockquote>
     </div>
   </section>
 
@@ -502,6 +612,28 @@
         });
       });
     });
+  </script>
+
+  <script>
+    document.querySelectorAll('.more-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var box = btn.parentElement, open = box.classList.toggle('is-open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        btn.textContent = open ? 'Show less' : (box.classList.contains('chapter') ? 'Read this chapter' : 'How I did it');
+      });
+    });
+
+    document.querySelectorAll('a.num').forEach(function (a) {
+      a.addEventListener('click', function () {
+        var t = document.querySelector(a.getAttribute('href'));
+        if (!t) return;
+        if (t.querySelector('.more-btn') && !t.classList.contains('is-open')) t.querySelector('.more-btn').click();
+        t.classList.remove('flash'); void t.offsetWidth; t.classList.add('flash');
+      });
+    });
+    if (window.matchMedia('(max-width: 820px)').matches) {
+      document.querySelectorAll('details.piece-group[open]').forEach(function (d) { d.removeAttribute('open'); });
+    }
   </script>
 </body>
 </html>
