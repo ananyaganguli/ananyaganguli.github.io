@@ -61,7 +61,8 @@
     h2 { font-family: var(--serif); font-weight: 600; font-size: clamp(30px, 4vw, 42px); line-height: 1.15; margin-bottom: 18px; }
     .section-intro { color: var(--soft); max-width: 620px; font-size: 18px; margin-bottom: 50px; }
 
-    .numbers { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 20px; }
+    .numbers { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .num .hl { color: var(--accent); font-weight: 600; }
     .num strong { white-space: nowrap; }
     .num { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 28px 24px; }
     .num strong { display: block; font-family: var(--serif); font-size: 38px; color: var(--accent); line-height: 1.1; margin-bottom: 8px; }
@@ -124,6 +125,8 @@
     .piece[hidden], .piece-group[hidden] { display: none; }
     .portfolio-notes { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 26px 30px; color: var(--soft); font-size: 16px; }
     .portfolio-notes p + p { margin-top: 10px; }
+    .also { max-width: 760px; color: var(--soft); font-size: 17px; margin-top: 8px; }
+    .also .eyebrow { margin-bottom: 10px; }
     .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
     .belief { padding: 100px 0; }
@@ -163,6 +166,11 @@
     .flash { animation: flash 1.6s ease; }
     @keyframes flash { 0%, 40% { box-shadow: 0 0 0 4px var(--accent-soft); background-color: #fff7f3; } 100% { box-shadow: 0 0 0 0 transparent; } }
     .group-note { color: var(--soft); font-size: 15px; background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 14px 18px; margin: 0 4px 6px; }
+
+    .intro-row { display: flex; align-items: center; gap: 16px; margin-bottom: 22px; }
+    .intro-row .eyebrow { margin: 0; }
+    .avatar { flex-shrink: 0; width: 68px; height: 68px; border-radius: 50%; background: #f6e4dc url(avatar.jpg) center / cover no-repeat; background-blend-mode: multiply; box-shadow: 0 0 0 3px var(--paper), 0 0 0 5px var(--accent-soft); user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; }
+    @media (max-width: 560px) { .avatar { width: 56px; height: 56px; } .intro-row { gap: 14px; } }
     .more-btn { display: none; }
     .mnav { display: none; }
     @media (max-width: 820px) {
@@ -200,19 +208,19 @@
       <ul>
         <li><a href="#story">My story</a></li>
         <li><a href="#work">Work</a></li>
-        <li><a href="#writing">Writing</a></li>
         <li><a href="#approach">Approach</a></li>
+        <li><a href="#writing">Writing</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
     <div class="mnav">
-      <a href="#story">My story</a><a href="#work">Work</a><a href="#writing">Writing</a><a href="#approach">Approach</a><a href="#contact">Contact</a>
+      <a href="#story">My story</a><a href="#work">Work</a><a href="#approach">Approach</a><a href="#writing">Writing</a><a href="#contact">Contact</a>
     </div>
   </nav>
 
   <header class="hero">
     <div class="wrap">
-      <p class="eyebrow">B2B marketer and corporate storyteller · Vancouver</p>
+      <div class="intro-row"><div class="avatar" role="img" aria-label="Portrait of Ananya Ganguli"></div><p class="eyebrow">B2B marketer and corporate storyteller · Vancouver</p></div>
       <h1>I turn complicated products into <em>stories people act on.</em></h1>
       <p class="lede">I've spent ten years interviewing people who know their product far better than I do, then writing it up so a buyer can follow along. Most of it is B2B. A lot of it is payments and construction tech.</p>
       <div class="cta">
@@ -227,7 +235,7 @@
     <div class="wrap">
       <h2>A few numbers I'm proud of</h2>
       <div class="numbers">
-        <a class="num" href="#card-cpl"><strong>$1,150 → $340</strong><span>Cost per lead after I moved budget toward what converted</span><em class="see">See how →</em></a>
+        <a class="num" href="#card-cpl"><strong>−70%</strong><span>Cost per lead, cut from <b class="hl">$1,150</b> to <b class="hl">$340</b> after I moved budget toward what converted</span><em class="see">See how →</em></a>
         <a class="num" href="#ch-cadmakers"><strong>+42%</strong><span>Lead conversion rate at a construction tech startup</span><em class="see">See how →</em></a>
         <a class="num" href="#card-softpos"><strong>15+</strong><span>New partners signed in the first three months of a payments product launch</span><em class="see">See how →</em></a>
         <a class="num" href="#ch-linkedin"><strong>86%</strong><span>Product adoption among existing customers, from a cold start</span><em class="see">See how →</em></a>
@@ -367,12 +375,43 @@
     </div>
   </section>
 
-<section id="writing" aria-labelledby="writing-h">
+  <section id="approach">
+    <div class="wrap">
+      <h2>How I work</h2>
+      <p class="section-intro">Whether it's a case study, a launch or a paid campaign, I follow the same three steps.</p>
+      <div class="approach">
+        <div class="step">
+          <div class="n">01</div>
+          <h3>Listen first</h3>
+          <p>I talk to the product team, the customer and the people in sales who hear objections every day. The best material is usually something someone mentioned in passing.</p>
+        </div>
+        <div class="step">
+          <div class="n">02</div>
+          <h3>Find the tension</h3>
+          <p>Every good story has a before and after. I look for the moment a buyer would recognise as their own problem, and build the piece around it.</p>
+        </div>
+        <div class="step">
+          <div class="n">03</div>
+          <h3>Ship, measure, repeat</h3>
+          <p>I A/B test headlines, landing pages and emails, and track results in GA4, HubSpot, Marketo and Salesforce. Then I put more effort into whatever's working.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="belief">
+    <div class="wrap">
+      <p class="eyebrow">Something I believe</p>
+      <blockquote>I think most B2B case studies are too polite. The customer quote says everything went smoothly, and nobody believes it. I'd rather show the messy middle, the week the integration broke and how the team fixed it, because that's the part a buyer is actually trying to picture.</blockquote>
+    </div>
+  </section>
+
+  <section id="writing" aria-labelledby="writing-h">
     <div class="wrap">
       <h2 id="writing-h">Things I've written</h2>
       <div class="portfolio-head">
         <p>Case studies, executive interviews, thought leadership and technical explainers from payments, construction technology and corporate communications. Live pieces open in a new tab. Gated pieces are available as a PDF if you ask.</p>
-        <a class="btn btn-ghost" href="Ananya-Ganguli-Writing-Portfolio.pdf" download target="_blank" rel="noopener">Download the full portfolio (PDF)</a>
+        <a class="btn btn-ghost" href="Ananya-Ganguli-Writing-Portfolio.pdf" target="_blank" rel="noopener">View the full portfolio (PDF)</a>
       </div>
       <div class="filters" role="group" aria-label="Filter writing">
         <button class="filter" type="button" data-filter="all" aria-pressed="true">All (23)</button>
@@ -414,8 +453,8 @@
           <summary><h3 class="label">Executive and thought leadership</h3><span class="count">3 pieces</span><span class="chev" aria-hidden="true"></span></summary>
           <ul class="piece-list">
           <li class="piece" data-status="live">
-            <a class="piece-title" href="https://worldline.com/en-ca/home/main-navigation/resources/blogs/getting-to-know-justin-passalaqua-ceo-of-worldline-north-america" target="_blank" rel="noopener">Getting to Know Justin Passalaqua, CEO of Worldline North America<span aria-hidden="true" class="arrow"> ↗</span><span class="sr-only"> (opens in a new tab)</span></a>
-            <span class="tags"><span class="tag">Worldline · Executive interview</span><span class="tag tag-live">Live online</span></span>
+            <a class="piece-title" href="https://web.archive.org/web/20260122102032/https://worldline.com/en-ca/home/main-navigation/resources/blogs/getting-to-know-justin-passalaqua-ceo-of-worldline-north-america" target="_blank" rel="noopener">Getting to Know Justin Passalaqua, CEO of Worldline North America<span aria-hidden="true" class="arrow"> ↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+            <span class="tags"><span class="tag">Worldline · Executive interview</span><span class="tag tag-live">Live online</span><span class="tag">Archived copy</span></span>
             <p class="piece-desc">An interview I conducted and wrote on the CEO&#x27;s career path, leadership and vision, balancing substance with personality.</p>
           </li>
           <li class="piece" data-status="gated">
@@ -439,8 +478,8 @@
             <p class="piece-desc">What PCI DSS 4.0 is, what changes and how partners get through it, turning a dense standard into clear steps.</p>
           </li>
           <li class="piece" data-status="live">
-            <a class="piece-title" href="https://worldline.com/en-ca/home/main-navigation/resources/blogs/3d-secure-2-0-an-extra-shield-for-your-fraud-prevention-toolkit" target="_blank" rel="noopener">3D Secure 2.0: An Extra Shield for Your Fraud Prevention Toolkit<span aria-hidden="true" class="arrow"> ↗</span><span class="sr-only"> (opens in a new tab)</span></a>
-            <span class="tags"><span class="tag">Worldline · Technical explainer</span><span class="tag tag-live">Live online</span></span>
+            <a class="piece-title" href="https://web.archive.org/web/20260118014927/https://worldline.com/en-ca/home/main-navigation/resources/blogs/3d-secure-2-0-an-extra-shield-for-your-fraud-prevention-toolkit" target="_blank" rel="noopener">3D Secure 2.0: An Extra Shield for Your Fraud Prevention Toolkit<span aria-hidden="true" class="arrow"> ↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+            <span class="tags"><span class="tag">Worldline · Technical explainer</span><span class="tag tag-live">Live online</span><span class="tag">Archived copy</span></span>
             <p class="piece-desc">How the 3DS2 protocol tackles card-not-present fraud, chargebacks and account takeover, grounded in fraud-loss data.</p>
           </li>
           <li class="piece" data-status="gated">
@@ -486,7 +525,7 @@
           <li class="piece" data-status="live">
             <a class="piece-title" href="https://help.na.bambora.com/hc/en-us/articles/47219100991635-Labour-Day-Canada-and-USA-Sept-7-2026" target="_blank" rel="noopener">Labour Day (Canada and USA), Sept 7, 2026<span aria-hidden="true" class="arrow"> ↗</span><span class="sr-only"> (opens in a new tab)</span></a>
             <span class="tags"><span class="tag">Shift4 Support Center · Help article</span><span class="tag tag-live">Live online</span></span>
-            <p class="piece-desc">How a bank holiday shifts batch processing and settlement, with tables mapping processing dates to credit dates. Part of the help and developer documentation I kept up for the team.</p>
+            <p class="piece-desc">One of the bank holiday notices I wrote and published every year from 2022 to 2026, covering each Canadian and US holiday that affects batch processing and settlement. The current set is live; earlier years have been archived.</p>
           </li>
         </ul>
         </details>
@@ -527,41 +566,10 @@
         </ul>
         </details>
       </div>
-      <div class="portfolio-notes">
-        <p>I also wrote quarterly product newsletters for Worldline's ISV partners, and storyboarded scripts for sales demo and brand videos.</p>
-        <p>During the acquisition I worked on partner and merchant communications that stay confidential. I'm glad to talk about that work directly.</p>
+      <div class="also">
+        <p class="eyebrow">Also worth mentioning</p>
+        <p>Beyond the pieces above, I wrote quarterly product newsletters for Worldline's ISV partners and scripted sales demo and brand videos. When Shift4 acquired Worldline North America, I also worked on the communications to partners and merchants about the change. Those stay confidential, but I'm happy to talk about that work in person.</p>
       </div>
-    </div>
-  </section>
-
-  <section id="approach">
-    <div class="wrap">
-      <h2>How I work</h2>
-      <p class="section-intro">Whether it's a case study, a launch or a paid campaign, I follow the same three steps.</p>
-      <div class="approach">
-        <div class="step">
-          <div class="n">01</div>
-          <h3>Listen first</h3>
-          <p>I talk to the product team, the customer and the people in sales who hear objections every day. The best material is usually something someone mentioned in passing.</p>
-        </div>
-        <div class="step">
-          <div class="n">02</div>
-          <h3>Find the tension</h3>
-          <p>Every good story has a before and after. I look for the moment a buyer would recognise as their own problem, and build the piece around it.</p>
-        </div>
-        <div class="step">
-          <div class="n">03</div>
-          <h3>Ship, measure, repeat</h3>
-          <p>I A/B test headlines, landing pages and emails, and track results in GA4, HubSpot, Marketo and Salesforce. Then I put more effort into whatever's working.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="belief">
-    <div class="wrap">
-      <p class="eyebrow">Something I believe</p>
-      <blockquote>I think most B2B case studies are too polite. The customer quote says everything went smoothly, and nobody believes it. I'd rather show the messy middle, the week the integration broke and how the team fixed it, because that's the part a buyer is actually trying to picture.</blockquote>
     </div>
   </section>
 
@@ -623,6 +631,7 @@
       });
     });
 
+    document.querySelectorAll('.avatar').forEach(function (el) { ['contextmenu','dragstart'].forEach(function (ev) { el.addEventListener(ev, function (e) { e.preventDefault(); }); }); });
     document.querySelectorAll('a.num').forEach(function (a) {
       a.addEventListener('click', function () {
         var t = document.querySelector(a.getAttribute('href'));
